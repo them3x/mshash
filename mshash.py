@@ -9,6 +9,7 @@ Copyright © 2007 Free Software Foundation, Inc. <http s ://fsf.org/>
 '''
 
 import hashlib, sys, os
+from getpass import getpass
 
 help = """--| Avaliable MODEs |--
 base64\t\t -e<d> base64 teste123
@@ -16,6 +17,11 @@ md5\t\t -e<d> md5 test123 </usr/share/wordlist/passmd5.txt> | Encode/Break MD5
 sha256\t\t -e<d> sha256 test123 </usr/share/wordlist/pass256.txt> | Encode/Break SHA256
 cipher caesar\t -e<d> caesar test123 [1/24 - a] | Encode/Decode on cipher caesar
 overutf8\t -e payload123 | Encode on overload UTF-8
+
+----------------------
+
+Use "mshash -e md5/sha256 sec" not to show the keyword (security mode)
+
 """
 try:
 	if sys.argv[1] == "--help" or sys.argv[1] == "-h":
@@ -78,6 +84,9 @@ def md5(data, mode, wordlist):
 	if mode == "-e":
                 print "-"*11,"\nENCRYPT|MD5\n","-"*11
 
+		if data == "sec":
+			data = getpass("Password: ")
+
 	        result = hashlib.md5(data)
 		print "-"*6,"\nRESULT\n","-"*6,"\n\n"
 	        print result.hexdigest()
@@ -127,6 +136,9 @@ def md5(data, mode, wordlist):
 def sha256(data, mode, wordlist):
         if mode == "-e":
                 print "-"*14,"\nENCRYPT|SHA256\n","-"*14
+
+                if data == "sec":
+                        data = getpass("Password: ")
 
                 result = hashlib.sha256(data)
                 print "-"*6,"\nRESULT\n","-"*6,"\n\n"
