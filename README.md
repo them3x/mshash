@@ -1,101 +1,128 @@
 # 🧠 mshash - Multi-Stage Hashing Tool
 
-**mshash** is a simple command-line tool written in Python for **encryption, brute-force attacks, and decryption** using multiple hash algorithms such as `SHA256`, `SHA512`, `MD5`, and Caesar cipher.
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue?logo=python)
+![License](https://img.shields.io/badge/license-AGPL-green)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Unix-lightgrey)
+
+> A command-line tool for multi-stage hashing and encoding. Supports classic hashes, modern SHA-3, Keccak, Base64, and even PHPass (WordPress-style).
 
 ---
 
-## 🔧 Features
+## 🚀 Features
 
-- 🔐 Encrypt input strings using SHA256, SHA512, MD5, or Caesar cipher
-- 🪓 Perform brute-force attacks on hashed values using a custom wordlist
-- 🔓 Decrypt Caesar cipher by rotating through all possible shifts
-
----
-
-## 🧰 Requirements
-
-- Python 3.x
-- Virtual environment (optional but recommended)
-- A wordlist file for brute-force mode (e.g., `senhas.txt`)
+- 🔐 Classic hash algorithms: MD2, MD4, MD5
+- 🔐 SHA-2 & SHA-3 families
+- 🔐 Keccak variants
+- 🔁 Base64 encoding
+- 🧩 PHPass (WordPress password hashing)
+- 🗣️ Multilingual help (Português 🇧🇷 & English 🇺🇸)
+- 🧪 Apply multiple stages of hashing (e.g., `base64(sha512(md5(text)))`)
 
 ---
 
-## 💾 Installation
+## 📦 Installation
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/mshash.git
+git clone https://github.com/them3x/mshash.git
 cd mshash
-python3 -m venv venv
-source venv/bin/activate
 ````
 
----
-
-## 🚀 Usage
+Install dependencies:
 
 ```bash
-python3 mshash.py [-h] {e,b,d} {sha256,sha512,md5,caesar} [input] [wordlist] [hash_time]
+pip install -r requirements.txt
 ```
 
-### Arguments:
-
-* `command`:
-
-  * `e` = encrypt
-  * `b` = brute-force
-  * `d` = decrypt
-* `hash_type`: `sha256`, `sha512`, `md5`, or `caesar`
-* `input`: (optional) input string
-* `wordlist`: file for brute-force mode
-* `hash_time`: number of hash iterations (default = 1)
+> 📦 Requires: `pycryptodome`, `passlib`, `distro` (optional)
 
 ---
 
-## 🔍 Examples
-
-### Encrypt a string using SHA512
+## 🧑‍💻 Usage
 
 ```bash
-python3 mshash.py e sha512 123
+python3 mshash.py [ALGORITHMS...] -t"TEXT"
 ```
 
-### Brute-force a SHA512 hash using a wordlist
+Or interactively:
 
 ```bash
-python3 mshash.py b sha512 <target_hash> senhas.txt 1
-```
-
-### Encrypt text using Caesar cipher
-
-```bash
-python3 mshash.py e caesar "hello world"
-```
-
-### Decrypt Caesar cipher
-
-```bash
-python3 mshash.py d caesar "khoor zruog"
+python3 mshash.py [ALGORITHMS...]
 ```
 
 ---
 
-## 📁 Project Structure
+## 💡 Examples
 
-* `mshash.py`: Main command-line interface
-* `cypher.py`: Contains the hashing and Caesar logic
-* Wordlist file (e.g., `senhas.txt`): Used for brute-force attempts
+```bash
+# SHA512 hash of "123"
+python3 mshash.py sha512 -t"123"
+
+# Multi-stage: base64(sha512(md5("hello")))
+python3 mshash.py md5 sha512 base64 -t"hello"
+
+# Interactive input
+python3 mshash.py md5 sha256
+Type:
+```
 
 ---
 
-## 🧑‍💻 License
+## 🔤 Supported Algorithms
 
-This project is licensed under the **GNU General Public License v3.0**.
+### 🔸 Classic Hashes
+
+* `MD2`, `MD4`, `MD5`
+
+### 🔹 SHA-2
+
+* `SHA224`, `SHA256`, `SHA384`, `SHA512`
+
+### 🔹 SHA-3
+
+* `SHA3224`, `SHA3256`, `SHA3384`, `SHA3512`
+
+### 🔹 Keccak
+
+* `KECCAK224`, `KECCAK256`, `KECCAK384`, `KECCAK512`
+
+### 🔸 Others
+
+* `RIPEMD160`
+* `PHPASS` (WordPress hashing)
+
+### 🔁 Encodings
+
+* `BASE64`, `B64`
 
 ---
 
-## 📬 Author
+## 🌐 Language Detection
+
+* The tool detects your system language using `locale`.
+* Displays help messages in:
+
+  * 🇧🇷 **Português (pt\_BR)**
+  * 🇺🇸 **English (en\_US or others)**
+
+---
+
+## 🧾 License
+
+GNU AFFERO GENERAL PUBLIC LICENSE
+
+---
+
+## 👤 Author
 
 Made with ❤️ by \[Messias] on Debian
 <br>
 GitHub: [them3x/mshash](https://github.com/them3x/mshash)
 
+
+---
+
+## ❤️ Contributions
+
+Pull requests and feature suggestions are welcome!
