@@ -1,0 +1,16 @@
+# Ignora arquivos compilados Python
+__pycache__/
+build/
+*.pyc
+*.pyo
+*.spec
+
+# Ignora arquivos temporários de editores
+*.swp
+*.swo
+*~
+
+# Ignora ambientes virtuais
+venv/
+.env/
+

@@ -7,12 +7,12 @@ Version 3, 29 June 2007
 
 Copyright © 2007 Free Software Foundation, Inc. <http s ://fsf.org/>
 '''
-
 #encoding: UTF-8
 
 import getpass
 import argparse
 import os
+import sys
 import threading
 from cypher import Cypher
 
@@ -34,7 +34,7 @@ if args.command == 'b':
 	else:
 		if os.path.isfile(args.wordlist) == False:
 			print ("Arquivo [ " + args.wordlist + " ] não existe")
-			exit(0)
+			sys.exit(0)
 
 	if args.hash_time is None:
 		count = 1

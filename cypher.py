@@ -1,7 +1,25 @@
 import hashlib
-
+import sys
 
 class Cypher():
+
+	def hashs(type, word):
+
+		if type == "SHA256":
+			sha256_hash = hashlib.sha256(word.encode()).hexdigest()
+			print(f"SHA256: {sha256_hash}")
+
+		elif type == "MD5":
+			md5_hash = hashlib.md5(word.encode()).hexdigest()
+			print(f"MD5: {md5_hash}")
+
+		elif type == "SHA512":
+			sha512_hash = hashlib.sha512(word.encode()).hexdigest()
+			print (f"SHA512: {sha512_hash}")
+
+		elif type == "CAESAR":
+			Cypher.caesar("-e", word)
+
 
 	def chash(wordlist, hash, hash_to_crack, count):
 		if hash == "SHA256":
@@ -11,7 +29,7 @@ class Cypher():
 					crack = hashlib.sha256(crack.encode()).hexdigest()
 					if crack == hash_to_crack:
 						print ("Encontrado [ " + "SHA256("*(n+1) + word + ") ]\n\n")
-						exit(0)
+						sys.exit(0)
 		elif hash == "MD5":
 			for word in wordlist:
 				crack = word
@@ -19,7 +37,7 @@ class Cypher():
 					crack = hashlib.md5(crack.encode()).hexdigest()
 					if crack == hash_to_crack:
 						print ("Encontrado [ " + "MD5("*(n+1) + word + ") ]\n\n")
-						exit(0)
+						sys.exit(0)
 		elif hash == "SHA512":
 			for word in wordlist:
 				crack = word
@@ -27,7 +45,7 @@ class Cypher():
 					crack = hashlib.sha512(crack.encode()).hexdigest()
 					if crack == hash_to_crack:
 						print ("Encontrado [ " + "SHA512("*(n+1) + word + ") ]\n\n")
-						exit(0)
+						sys.exit(0)
 
 
 	def caesar(mode, keyw):
@@ -47,7 +65,7 @@ class Cypher():
 
 					if dec == True:
 						alphabet = []
-						for i in range(27, 0, -1):
+						for i in range(26, 0, -1):
 							alphabet.append(old[i])
 						alphabet.append(old[0])
 
@@ -64,7 +82,7 @@ class Cypher():
 
 					if dec == True:
 						alphabet = []
-						for i in range(27, 0, -1):
+						for i in range(26, 0, -1):
 							alphabet.append(old[i])
 						alphabet.append(old[0])
 
@@ -84,7 +102,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -102,7 +120,8 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
+
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -120,7 +139,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -138,7 +157,7 @@ class Cypher():
 
 					if dec == True:
 						alphabet = []
-						for i in range(27, 0, -1):
+						for i in range(26, 0, -1):
 							alphabet.append(old[i])
 						alphabet.append(old[0])
 
@@ -156,7 +175,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -174,7 +193,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -192,7 +211,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -210,7 +229,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -228,7 +247,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -246,7 +265,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -264,7 +283,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -283,7 +302,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -301,7 +320,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -320,7 +339,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -338,7 +357,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -355,7 +374,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -374,7 +393,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -392,7 +411,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -410,7 +429,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -428,7 +447,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -446,7 +465,8 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
+
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -464,7 +484,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -482,7 +502,7 @@ class Cypher():
 
 						if dec == True:
 						   alphabet = []
-						   for i in range(27, 0, -1):
+						   for i in range(26, 0, -1):
 						   		alphabet.append(old[i])
 						   alphabet.append(old[0])
 
@@ -500,7 +520,7 @@ class Cypher():
 
 						if dec == True:
 							alphabet = []
-							for i in range(27, 0, -1):
+							for i in range(26, 0, -1):
 								alphabet.append(old[i])
 							alphabet.append(old[0])
 
@@ -512,7 +532,7 @@ class Cypher():
 								print(i, end="")
 								break
 				elif i == " ":
-					print(" ")
+					print(" ", end="")
 
 
 
@@ -523,19 +543,3 @@ class Cypher():
 		print ("\n\n")
 
 
-	def hashs(type, word):
-
-		if type == "SHA256":
-			sha256_hash = hashlib.sha256(word.encode()).hexdigest()
-			print(f"SHA256: {sha256_hash}")
-
-		elif type == "MD5":
-			md5_hash = hashlib.md5(word.encode()).hexdigest()
-			print(f"MD5: {md5_hash}")
-
-		elif type == "SHA512":
-			sha512_hash = hashlib.sha512(word.encode()).hexdigest()
-			print (f"SHA512: {sha512_hash}")
-
-		elif type == "CAESAR":
-			Cypher.caesar("-e", word)
